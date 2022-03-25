@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { Fragment, useEffect, useState } from 'react';
+import TodoItem from './components/todoItem';
 
 function App() {
 
@@ -17,18 +18,24 @@ function App() {
           setTodoItems(data)
         })};
   });
+
   return (
-    <div>
-        {todoItems ? todoItems.map((item) => {
-          return( 
-          <Fragment key={item.id}>
-            <input type="checkbox" checked={item.completed} onChange={} />
-            <span>{item.description}</span>
-          </Fragment>
-          );
-        }) 
-        : "Cargando informacion"}
-    </div>
+    <>
+      <div>
+          
+      </div>
+    
+      <div>
+          {todoItems ? todoItems.map((item) => 
+          {
+            return( 
+              <TodoItem key={item.id} data={item}></TodoItem>
+            );
+          }) 
+          : "Cargando informacion"}
+      </div>
+
+    </>
   );
 }
 

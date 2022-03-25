@@ -11,7 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/toDo")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*" ,methods = {RequestMethod.GET,RequestMethod.DELETE,RequestMethod.PUT,RequestMethod.POST})
 public class TaskController {
 
 
@@ -40,18 +40,18 @@ public class TaskController {
     }
 
     @PutMapping("/{id}")
-    Task updateTask(@RequestBody Task newTodo, @PathVariable Integer id) {
+    ResponseEntity<?> updateTask(@RequestBody Task newTodo, @PathVariable Integer id) {
         return taskService.findById(id)
                 .map(task -> {
                     task.setDescription(newTodo.getDescription());
                     task.setCompleted(newTodo.isCompleted());
                     taskService.save(task);
-                    return task;
+                    return ResponseEntity.ok(task);
                 })
                 .orElseGet(() -> {
-                    newTodo.setId(id);
+                    //newTodo.setId(id);
                     taskService.save(newTodo);
-                    return newTodo;
+                    return ResponseEntity.ok(newTodo);
                 });
     }
 
