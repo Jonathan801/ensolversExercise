@@ -19,10 +19,21 @@ function App() {
         })};
   });
 
+  function addNewToDo(){
+    fetch("http://localhost:8080/api/toDo",{
+      method:"POST",
+      headers: {
+          "content-type" : "application/json"
+      },
+      body:JSON.stringify()
+    })
+  }
+
+
   return (
     <>
       <div>
-          
+          <button onClick={addNewToDo}> Add new Todo</button>
       </div>
     
       <div>
