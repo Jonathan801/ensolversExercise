@@ -29,35 +29,24 @@ public class TaskController {
     }
 
     @PostMapping
-    void newTask(@RequestBody Task newTask){
-        taskService.save(newTask);
+    ResponseEntity<?> newTask(@RequestBody Task newTask){
+        return ResponseEntity.status(201).body(this.taskService.saveTask(newTask));
     }
 
     @GetMapping("/{id}")
-    Task findTask(@PathVariable Integer id) {
-        return taskService.findById(id)
-                .orElseThrow(() -> new TaskNotFoundException(id)); //Check exception because Optional in service
+    ResponseEntity<?>  findTask(@PathVariable Integer id) {
+        return ResponseEntity.status(200).body(this.taskService.findById(id));
     }
 
     @PutMapping("/{id}")
     ResponseEntity<?> updateTask(@RequestBody Task newTodo, @PathVariable Integer id) {
-        return taskService.findById(id)
-                .map(task -> {
-                    task.setDescription(newTodo.getDescription());
-                    task.setCompleted(newTodo.isCompleted());
-                    taskService.save(task);
-                    return ResponseEntity.ok(task);
-                })
-                .orElseGet(() -> {
-                    //newTodo.setId(id);
-                    taskService.save(newTodo);
-                    return ResponseEntity.ok(newTodo);
-                });
+        return ResponseEntity.status(200).body(this.taskService.updateTask(newTodo,id));
     }
 
     @DeleteMapping("/{id}")
-    void deleteTask(@PathVariable Integer id) {
-        taskService.deleteById(id);
+    ResponseEntity<?> deleteTask(@PathVariable Integer id) {
+        this.taskService.deleteById(id);
+        return ResponseEntity.status(200).body("Task con id " + id + " a sido eliminada");
     }
 
 }
