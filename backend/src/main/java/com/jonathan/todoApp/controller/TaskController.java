@@ -4,12 +4,14 @@ import com.jonathan.todoApp.exceptions.TaskNotFoundException;
 import com.jonathan.todoApp.model.Task;
 import com.jonathan.todoApp.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/toDo")
+@CrossOrigin(origins = "http://localhost:3000")
 public class TaskController {
 
 
@@ -22,8 +24,8 @@ public class TaskController {
 
 
     @GetMapping
-    List<Task> getAllTasks(){
-        return taskService.findAll();
+    ResponseEntity<?> getAllTasks(){
+        return ResponseEntity.ok(taskService.findAll());
     }
 
     @PostMapping
