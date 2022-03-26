@@ -7,7 +7,7 @@ const AddTodoItem = (props) =>{
     <div>
         <form onSubmit={() => {addNewToDo()}}>
             <label htmlFor="new-todo">
-                Que tarea se desea agendar?
+                Que tarea se desea agregar?
             </label>
             <p></p>
             <input
