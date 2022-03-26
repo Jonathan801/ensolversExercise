@@ -24,6 +24,11 @@ const TodoItem = (props) => {
     //console.log(JSON.stringify(todoItem))
   },[todoItem,isChanged])
 
+  function updateTask(e){
+    setIsChanged(true);
+    setTodoItem({...todoItem,description:e.target.value})
+  }
+
   return (
     <div>
         <input type="checkbox" checked={todoItem.completed} onChange={()=>
@@ -31,7 +36,7 @@ const TodoItem = (props) => {
             setIsChanged(true);
             setTodoItem({...todoItem,completed:!todoItem.completed})
         }} />
-        <span>{todoItem.description}</span>
+        <input type="text" value={todoItem.description} onChange={updateTask}></input>
     </div>
   )
 }

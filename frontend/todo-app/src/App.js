@@ -35,7 +35,6 @@ function App() {
       <div>
           <button onClick={addNewToDo}> Add new Todo</button>
       </div>
-    
       <div>
           {todoItems ? todoItems.map((item) => 
           {
