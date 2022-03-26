@@ -23,7 +23,7 @@ Realizar las cosas tirando mas a produccion que desarrollo.
 
 Realizar los puntos extras de la prueba tecnica.
 
-##Levantar aplicacion
+## Levantar aplicacion
 
 Para levantar el servicio se debe ubicar en la carpeta de frontend y ejecutar en la terminal "npm start".Esto levanta localmente el frontend en la direccion localhost:3000 , el cual le pega al servicio de backend levantado en heroku en la direccion https://todoapp-springboot-postgres.herokuapp.com/api/toDo
 
