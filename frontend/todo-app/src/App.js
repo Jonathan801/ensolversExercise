@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     if(!todoItems){        
-      fetch("http://localhost:8080/api/toDo")
+      fetch("https://todoapp-springboot-postgres.herokuapp.com/api/toDo")
         .then((res) => {
             return res.json();
         })
@@ -22,7 +22,7 @@ function App() {
   });
 
   function addNewToDo(){
-    fetch("http://localhost:8080/api/toDo",{
+    fetch("https://todoapp-springboot-postgres.herokuapp.com/api/toDo",{
       method:"POST",
       headers: {
           "content-type" : "application/json"

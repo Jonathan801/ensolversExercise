@@ -7,7 +7,7 @@ const TodoItem = (props) => {
 
     useEffect(() =>{
         if(isChanged){
-            fetch(`http://localhost:8080/api/toDo/${todoItem.id}`,{
+            fetch(`https://todoapp-springboot-postgres.herokuapp.com/api/toDo/${todoItem.id}`,{
                 method:"PUT",
                 headers: {
                     "content-type" : "application/json"
@@ -25,7 +25,7 @@ const TodoItem = (props) => {
     },[todoItem,isChanged])
 
     function deleteToDo(){
-        fetch(`http://localhost:8080/api/toDo/${todoItem.id}`,{
+        fetch(`https://todoapp-springboot-postgres.herokuapp.com/api/toDo/${todoItem.id}`,{
             method:"DELETE",
             headers: {
                 "content-type" : "application/json"
