@@ -25,14 +25,14 @@ const TodoItem = (props) => {
   },[todoItem,isChanged])
 
   return (
-    <>
+    <div>
         <input type="checkbox" checked={todoItem.completed} onChange={()=>
         {
             setIsChanged(true);
             setTodoItem({...todoItem,completed:!todoItem.completed})
         }} />
         <span>{todoItem.description}</span>
-    </>
+    </div>
   )
 }
 
