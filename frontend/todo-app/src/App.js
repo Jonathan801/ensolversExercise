@@ -52,6 +52,8 @@ function App() {
         <AddTodoItem setTextItem={setTextItem} textItem={textItem} addNewToDo={addNewToDo} ></AddTodoItem>
       </div>
 
+      <p></p>
+
       <div>
           {todoItems ? todoItems.map((item) => 
           {

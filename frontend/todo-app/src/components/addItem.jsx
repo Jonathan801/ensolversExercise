@@ -9,13 +9,14 @@ const AddTodoItem = (props) =>{
             <label htmlFor="new-todo">
                 Que tarea se desea agendar?
             </label>
+            <p></p>
             <input
                 id="new-todo"
                 onChange={(e) => setTextItem(e.target.value)}
                 value={textItem}
             />
             <button>
-                Add New Task
+                Add Task
             </button>
         </form>
     </div>
