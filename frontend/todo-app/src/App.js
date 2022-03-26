@@ -49,19 +49,7 @@ function App() {
   return (
     <>
       <div>
-        <form onSubmit={() => {addNewToDo()}}>
-            <label htmlFor="new-todo">
-                Que tarea se desea agendar?
-            </label>
-            <input
-                id="new-todo"
-                onChange={(e) => setTextItem(e.target.value)}
-                value={textItem}
-            />
-            <button>
-                Add New Task
-            </button>
-        </form>
+        <AddTodoItem setTextItem={setTextItem} textItem={textItem} addNewToDo={addNewToDo} ></AddTodoItem>
       </div>
 
       <div>
@@ -73,7 +61,6 @@ function App() {
           }) 
           : "Cargando informacion"}
       </div>
-
     </>
   );
 }
