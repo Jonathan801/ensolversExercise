@@ -8,9 +8,7 @@ Consiste en una aplicacion toDo sencilla en donde se pueden agregar tareas para 
 
 Se utilizo Spring boot iniciado mediante Spring initializr con las dependencias Spring Data JPA,Spring Web , como base de datos se utilizo Postgresql y de frontend Reactjs.
 
-Para levantar el servicio se debe ubicar en la carpeta de backend y ejecutar en la terminal "./mvnw spring-boot:run" , luego ir a la carpeta de frontend y ejecutar "npm start".
 
-A priori el servicio de frontend se levanta en el localhost:3000 y el backend en el localhost:8080
 
 ## Cosas para hacer
 
@@ -25,3 +23,8 @@ Realizar las cosas tirando mas a produccion que desarrollo.
 
 Realizar los puntos extras de la prueba tecnica.
 
+##Levantar aplicacion
+
+Para levantar el servicio se debe ubicar en la carpeta de frontend y ejecutar en la terminal "npm start".Esto levanta localmente el frontend en la direccion localhost:3000 , el cual le pega al servicio de backend levantado en heroku en la direccion https://todoapp-springboot-postgres.herokuapp.com/api/toDo
+
+Algo pendiente seria levantar tambien en heroku el frontend y adaptar mejor el codigo para las opciones de dev y produccion
