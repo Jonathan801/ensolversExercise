@@ -29,6 +29,11 @@ function App() {
     })
   }
 
+  function deleteTodo(task){
+    const updated = todoItems.filter(itemToDo => itemToDo.id !== task.id);
+    setTodoItems([...updated])
+  }
+
 
   return (
     <>
@@ -39,7 +44,7 @@ function App() {
           {todoItems ? todoItems.map((item) => 
           {
             return( 
-              <TodoItem key={item.id} data={item}></TodoItem>
+              <TodoItem key={item.id} data={item} emitDeleteToDo={deleteTodo}></TodoItem>
             );
           }) 
           : "Cargando informacion"}
